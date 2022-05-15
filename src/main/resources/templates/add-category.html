@@ -1,0 +1,42 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <section class="jumbotron text-center" style="background-color: white">
+        <div class="container">
+            <h1 class="jumbotron-heading">Add category</h1>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <form action="/categories/add" method="POST">
+                    <input id="id" type="hidden" name="id" th:value="(${category} != null ? ${category.getId()} : '')">
+                    <div class="form-group">
+                        <label for="name">Category name</label>
+                        <input type="text"
+                               class="form-control"
+                               id="name"
+                               name="name"
+                               th:value="(${category} != null ? ${category.getName()} : '')"
+                               required
+                               placeholder="Enter category name">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Category description</label>
+                        <input type="text"
+                               class="form-control"
+                               id="description"
+                               name="description"
+                               th:value="(${category} != null ? ${category.getDescription()} : '')"
+                               required
+                               placeholder="Enter category description">
+                    </div>
+
+                    <button id="submit" type="submit" class="btn btn-primary" style="background-color: mediumorchid">Submit</button>
+                    <a type="button" class="btn btn-primary" href="/categories">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>
